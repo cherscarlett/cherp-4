@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         name: 'twitter:image',
-        content: 'https://i.imgur.com/Q6EA1TN.jpg'
+        content: 'http://cherp.tv/thumb.png'
       }
     ],
     link: [
