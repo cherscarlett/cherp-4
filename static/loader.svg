@@ -1,0 +1,28 @@
+<!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+<svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="100%" y1="100%">
+      <stop offset="0%" stop-color="lightblue" stop-opacity=".5">
+        <animate attributeName="stop-color" values="lightblue;blue;red;red;black;red;red;purple;lightblue" dur="14s" repeatCount="indefinite">
+        </animate>
+      </stop>
+      <stop offset="0.881257" stop-color="lightblue" stop-opacity=".5">
+        <animate attributeName="stop-color" values="lightblue;orange;purple;purple;black;purple;purple;blue;lightblue" dur="14s" repeatCount="indefinite"></animate><animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="14s" repeatCount="indefinite">
+        </animate>
+      </stop>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(1 1)">
+      <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#gradient)" stroke-width="2">
+        <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 18 18"
+            to="360 18 18"
+            dur="0.9s"
+            repeatCount="indefinite" />
+      </path>
+    </g>
+  </g>
+</svg>
