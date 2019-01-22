@@ -1,5 +1,3 @@
-const pkg = require('./package')
-
 module.exports = {
   mode: 'universal',
 
@@ -7,11 +5,32 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Cher Scarlett || Code Hitchhiker',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Personal website of Cher Scarlett. Resume, photos, and writing.'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        name: 'twitter:site',
+        content: '@codehitchhiker'
+      },
+      {
+        name: 'twitter:creator',
+        content: '@codehitchhiker'
+      },
+      {
+        name: 'twitter:image',
+        content: 'https://i.imgur.com/Q6EA1TN.jpg'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
