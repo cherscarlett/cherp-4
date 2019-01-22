@@ -434,7 +434,7 @@
                   <h1>University of Washington</h1>
                   <h2>Data Science</h2>
                 </hgroup>
-                <div class="metadata">
+                <div class="metadata edu">
                   <p class="location">Remote</p>
                   <p class="timespan">October 2016 - January 2017</p>
                 </div>
@@ -448,7 +448,7 @@
                   <h1>University of Missouri</h1>
                   <h2>Physics &amp; Astronomy</h2>
                 </hgroup>
-                <div class="metadata">
+                <div class="metadata edu">
                   <p class="location">Saint Louis, MO</p>
                   <p class="timespan">September 2008 - May 2011</p>
                 </div>
@@ -462,7 +462,7 @@
                   <h1>Academy of Art</h1>
                   <h2>Photography &amp; Web Design</h2>
                 </hgroup>
-                <div class="metadata">
+                <div class="metadata edu">
                   <p class="location">Remote</p>
                   <p class="timespan">September 2005 - May 2007</p>
                 </div>
@@ -493,6 +493,10 @@
 .resume-document-item .metadata {
   margin-left: auto;
   text-align: right;
+}
+.resume-document-item .timespan {
+  font-family: 'Domaine Display Narrow';
+  font-style: italic;
 }
 .resume-document-item h1 {
   font-weight: bold;
@@ -529,10 +533,17 @@
   padding: 10px 20px;
 }
 @media screen and (max-width: 600px) {
-  .metadata {
+  .metadata:not(.edu) {
     font-size: 1em;
     transform: rotate(-90deg);
     transform-origin: 87% 23%;
+    white-space: nowrap;
+  }
+  .edu {
+    white-space: nowrap;
+  }
+  .timespan {
+    font-size: 0.9em;
   }
 }
 </style>
