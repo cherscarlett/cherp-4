@@ -1,7 +1,7 @@
 <template>
   <header v-bind:class="$nuxt.$route.name === 'index' ? '' : 'page'">
     <h1>
-      <a href="/">Cher Scarlett</a>
+      <nuxt-link path="/" name="index">Cher Scarlett</nuxt-link>
     </h1>
     <h2>Software Engineer</h2>
     <ul class="external">
@@ -61,6 +61,7 @@ h1 {
   padding: 0;
   line-height: 0.9em;
   position: absolute;
+  z-index: 2;
 }
 h1 a {
   color: #022728;
