@@ -77,6 +77,7 @@ ul {
   position: relative;
   z-index: 1;
   transition: all 0.5s ease-in;
+  z-index: 4;
 }
 header.page ul {
   width: 50%;
