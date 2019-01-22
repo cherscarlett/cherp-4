@@ -1,7 +1,7 @@
 <template>
   <header v-bind:class="$nuxt.$route.name === 'index' ? '' : 'page'">
     <h1>
-      <nuxt-link path="/" name="index">Cher Scarlett</nuxt-link>
+      <nuxt-link to="/" name="index">Cher Scarlett</nuxt-link>
     </h1>
     <h2>Software Engineer</h2>
     <ul class="external">
