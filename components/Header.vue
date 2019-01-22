@@ -110,6 +110,7 @@ text {
   display: flex;
   justify-content: space-between;
   width: 6em;
+  transition: all 1s ease-in-out;
   transform: translateX(66%) translateY(430%) scale(1);
   z-index: 5;
 }
