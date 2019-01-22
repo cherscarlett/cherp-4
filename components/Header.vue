@@ -69,7 +69,8 @@ h1 a {
 
 header.page h1 {
   font-size: 2.5em;
-  transform: translateX(-45vw) translateY(1vh) rotate(0);
+  transform: translateX(-72vw) translateY(1vh) rotate(0);
+  width: 50%;
 }
 
 h2 {
