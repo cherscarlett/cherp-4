@@ -125,6 +125,7 @@ header.page .external {
   transition: all 0.6s ease-in-out;
   text-indent: -10000px;
   display: inline-block;
+  z-index: 5;
 }
 
 .external a:hover,
@@ -167,7 +168,7 @@ header.page .external {
 
   header.page h1 {
     font-size: 1.5em;
-    transform: translateX(-40vw) translateY(8vh) rotate(0);
+    transform: translateX(-68vw) translateY(8vh) rotate(0);
   }
 
   header.page .external {
