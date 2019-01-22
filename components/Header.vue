@@ -1,7 +1,20 @@
 <template>
   <header v-bind:class="$nuxt.$route.name === 'index' ? '' : 'page'">
-    <h1>Cher Scarlett</h1>
+    <h1>
+      <a href="/">Cher Scarlett</a>
+    </h1>
     <h2>Software Engineer</h2>
+    <ul class="external">
+      <li>
+        <a href="//twitter.com/codehitchhiker" class="twitter">twitter.com/codehitchhiker</a>
+      </li>
+      <li>
+        <a href="//linkedin.com/in/cherscarlett" class="linkedin">linkedin.com/in/cherscarlett</a>
+      </li>
+      <li>
+        <a href="//github.com/cherscarlett" class="github">linkedin.com/in/cherscarlett</a>
+      </li>
+    </ul>
     <Nav/>
   </header>
 </template>
@@ -39,7 +52,6 @@ h1 {
   font-weight: 400;
   width: 100%;
   animation: neon 2s ease-in-out infinite alternate;
-  color: #022728;
   mix-blend-mode: hard-light;
   opacity: 0.8;
   margin-top: auto;
@@ -49,6 +61,9 @@ h1 {
   padding: 0;
   line-height: 0.9em;
   position: absolute;
+}
+h1 a {
+  color: #022728;
 }
 
 header.page h1 {
@@ -88,18 +103,73 @@ text {
       0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
   }
 }
+.external {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 6em;
+  transform: translateX(66%) translateY(430%) scale(1);
+}
+header.page .external {
+  transform: translateX(41vw) translateY(8vh) scale(0.75);
+}
+.external a {
+  height: 20px;
+  width: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  filter: grayscale(100%) brightness(2.5);
+  transition: all 0.6s ease-in-out;
+  text-indent: -10000px;
+  display: inline-block;
+}
 
-@media screen and (max-width: 600px) {
+.external a:hover,
+.external a:active {
+  filter: grayscale(0%) brightness(1);
+}
+
+.twitter {
+  background-image: url(~assets/twitter.svg);
+}
+.github {
+  background-image: url(~assets/github.svg);
+}
+.linkedin {
+  background-image: url(~assets/linkedin.svg);
+}
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    transform: rotate(0) translateX(-35vw) translateY(0);
+  }
+}
+@media screen and (max-width: 880px) {
+  h1 {
+    transform: rotate(25deg) translateX(-45vw) translateY(10vh);
+  }
+
+  h2 {
+    transform: translateX(0) translateY(900%);
+  }
+
+  .external {
+    transform: translateX(0) translateY(900%);
+  }
+}
+@media screen and (max-width: 700px) {
   h1 {
     transform: rotate(45deg) translateX(-40vw) translateY(10vh);
   }
 
   header.page h1 {
     font-size: 1.5em;
-    transform: translateX(-20vw) translateY(7vh) rotate(0);
+    transform: translateX(-40vw) translateY(8vh) rotate(0);
   }
-  h2 {
-    transform: translateX(0) translateY(900%);
+
+  header.page .external {
+    transform: translateX(32vw) translateY(8vh) scale(0.75);
   }
 }
 </style>
