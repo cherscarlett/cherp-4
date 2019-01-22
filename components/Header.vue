@@ -111,6 +111,7 @@ text {
   justify-content: space-between;
   width: 6em;
   transform: translateX(66%) translateY(430%) scale(1);
+  z-index: 5;
 }
 header.page .external {
   transform: translateX(41vw) translateY(8vh) scale(0.75);
@@ -125,7 +126,6 @@ header.page .external {
   transition: all 0.6s ease-in-out;
   text-indent: -10000px;
   display: inline-block;
-  z-index: 5;
 }
 
 .external a:hover,
