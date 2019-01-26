@@ -30,8 +30,6 @@ html {
 }
 
 body {
-  background: #022728 url(~assets/bg.jpg) bottom center no-repeat;
-  background-size: cover;
   color: white;
   font-family: 'Domaine Display', serif;
   height: 100vh;
@@ -58,6 +56,8 @@ a {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  background: #022728 url(~assets/bg.jpg) bottom center no-repeat;
+  background-size: cover;
 }
 section {
   margin-top: auto;
