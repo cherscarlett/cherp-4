@@ -77,7 +77,7 @@ h2 {
   text-transform: uppercase;
   text-shadow: 0 2px 8px #000;
   letter-spacing: 1px;
-  transform: translateX(100%) translateY(350%);
+  transform: translateX(100%) translateY(335%);
   opacity: 1;
   position: absolute;
   transition: all 1s ease-in;
@@ -111,7 +111,7 @@ text {
   justify-content: space-between;
   width: 6em;
   transition: all 1s ease-in-out;
-  transform: translateX(66%) translateY(430%) scale(1);
+  transform: translateX(396%) translateY(600%) scale(1);
   z-index: 5;
 }
 header.page .external {
