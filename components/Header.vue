@@ -115,7 +115,7 @@ text {
   z-index: 5;
 }
 header.page .external {
-  transform: translateX(41vw) translateY(8vh) scale(0.75);
+  transform: translateX(41vw) translateY(7vh) scale(0.75);
 }
 .external a {
   height: 20px;
