@@ -69,6 +69,7 @@ section {
   transition: all 1s ease-in-out;
   height: 90vh;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
 }
 section.page-enter {
   height: 0;
