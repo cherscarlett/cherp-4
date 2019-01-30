@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   mode: 'universal',
 
@@ -44,7 +46,10 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#fff',
+    height: '5px'
+  },
 
   /*
   ** Global CSS
@@ -62,13 +67,21 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  env: {
+    spotifyId: process.env.SPOTIFY_CLIENT_ID,
+    spotifySecret: process.env.SPOTIFY_CLIENT_SECRET,
+    mLabKey: process.env.MLAB_API_KEY,
+    mLabDB: process.env.MLAB_DB
   },
 
   /*
@@ -89,5 +102,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  serverMiddleware: ['~api']
 }

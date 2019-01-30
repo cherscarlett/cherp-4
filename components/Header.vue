@@ -1,5 +1,5 @@
 <template>
-  <header v-bind:class="$nuxt.$route.name === 'index' ? '' : 'page'">
+  <header :class="$nuxt.$route.name === 'index' ? '' : 'page'">
     <h1>
       <nuxt-link to="/" name="index">Cher Scarlett</nuxt-link>
     </h1>

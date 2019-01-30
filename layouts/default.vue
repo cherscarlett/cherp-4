@@ -192,7 +192,10 @@ h3 {
   width: 100%;
   height: 100vh;
 }
-
+.nuxt-progress {
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+}
 @media screen and (max-width: 700px) {
   .content {
     padding-bottom: 200px;
