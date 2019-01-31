@@ -2,8 +2,8 @@
   <article v-if="nowPlaying" :class="isSwapping ? 'is-swapping' : ''">
     <h1>Listening</h1>
     <p class="title">{{ nowPlaying.item.name }}</p>
-    <p v-for="(artist, index) in nowPlaying.item.artists" :key="index">
-      <em>{{ artist.name }}</em>
+    <p class="artist">
+      <em v-for="(artist, index) in nowPlaying.item.artists" :key="index">{{ artist.name }}</em>
     </p>
     <aside>
       <span :style="`width: ${progress}`" :aria-label="progress"/>
@@ -141,12 +141,12 @@ p {
   font-family: 'Domaine Display Narrow';
   font-style: italic;
   opacity: 0.6;
-  display: inline-block;
   white-space: nowrap;
 }
 em:not(em:last-child):after {
   content: ', ';
   font-weight: normal;
+  padding-right: 4px;
 }
 p.title {
   display: block;
