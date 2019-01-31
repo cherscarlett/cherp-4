@@ -26,7 +26,7 @@ export default {
     )
     const spotifyUrl = `https://accounts.spotify.com/authorize?client_id=${
       env.spotifyId
-    }&response_type=code&scope=user-read-currently-playing,user-read-recently-played&redirect_uri=http://localhost:3000/callback`
+    }&response_type=code&scope=user-read-currently-playing,user-read-recently-played&redirect_uri=http://cherp.tv/callback`
     return {
       loading: false,
       spotifyUrl,

@@ -14,7 +14,7 @@ app.get('/auth/:code', (req, res) => {
       client_secret: process.env.SPOTIFY_CLIENT_SECRET,
       code: req.params.code,
       grant_type: 'authorization_code',
-      redirect_uri: 'http://localhost:3000/callback'
+      redirect_uri: 'http://cherp.tv/callback'
     },
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
