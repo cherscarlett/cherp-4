@@ -43,7 +43,7 @@ export default {
   methods: {
     async getNowPlaying() {
       const nowPlaying = await this.$axios.$get(
-        `http://cherp.tv/api/now-playing/${this.access}`
+        `/api/now-playing/${this.access}`
       )
       if (nowPlaying.is_playing) {
         this.timeTrack(
@@ -61,7 +61,7 @@ export default {
     },
     async getAudioAnalysis(id) {
       const audioAnalysis = await this.$axios.$get(
-        `http://cherp.tv/api/audio-analysis/${id}/${this.access}`
+        `/api/audio-analysis/${id}/${this.access}`
       )
       this.$store.commit('updateAudioAnalysis', {
         audioAnalysis
