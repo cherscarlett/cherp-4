@@ -53,7 +53,9 @@ export default {
   },
   methods: {
     async refreshToken(token) {
-      const spotifyTokenData = await this.$axios.$get(`/api/refresh/${token}`)
+      const spotifyTokenData = await this.$axios.$get(
+        `http://cherp.tv/api/refresh/${token}`
+      )
       this.$store.commit('update', {
         token: this.token,
         tokenId: this.tokenId,
