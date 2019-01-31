@@ -146,6 +146,7 @@ p {
 }
 em:not(em:last-child):after {
   content: ', ';
+  font-weight: normal;
 }
 p.title {
   display: block;
