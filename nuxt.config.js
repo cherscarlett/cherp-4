@@ -103,5 +103,5 @@ module.exports = {
       }
     }
   },
-  serverMiddleware: ['~api']
+  serverMiddleware: ['~/api']
 }
