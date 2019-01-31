@@ -1,6 +1,6 @@
 <template>
-  <article v-if="nowPlaying" :class="isSwapping ? 'is-swapping' : ''">
-    <h1>Listening</h1>
+  <article v-if="nowPlaying && nowPlaying.item" :class="isSwapping ? 'is-swapping' : ''">
+    <h1>Current Vibes</h1>
     <p class="title">{{ nowPlaying.item.name }}</p>
     <p class="artist">
       <em v-for="(artist, index) in nowPlaying.item.artists" :key="index">{{ artist.name }}</em>
@@ -40,26 +40,27 @@ export default {
     }
   },
   mounted() {
-    if (this.access) this.getNowPlaying()
+    if (this.access) this.refreshNowPlaying()
   },
   methods: {
     async getNowPlaying() {
       const nowPlaying = await this.$axios.$get(
         `/api/now-playing/${this.access}`
       )
-      if (nowPlaying.is_playing) {
+      let id = null
+      if (this.nowPlaying) id = this.nowPlaying.item.id
+      if (nowPlaying && (nowPlaying.is_playing && nowPlaying.item.id !== id)) {
         this.timeTrack(
           Date.now(),
           nowPlaying.item.duration_ms,
           nowPlaying.progress_ms
         )
+        this.$store.commit('nowPlayingChange', {
+          nowPlaying
+        })
+        this.isSwappingBool(true)
         // this.getAudioAnalysis(nowPlaying.item.id)
       }
-      this.$store.commit('nowPlayingChange', {
-        nowPlaying
-      })
-      this.refreshNowPlaying()
-      this.isSwappingBool(true)
     },
     async getAudioAnalysis(id) {
       const audioAnalysis = await this.$axios.$get(
@@ -75,7 +76,7 @@ export default {
       const until = now + remainder
       const runTimer = setInterval(() => {
         const newNow = Date.now()
-        if (newNow <= until) {
+        if (newNow < until + 2500) {
           const newRemainder = until - newNow
           const newProgressMs = duration - newRemainder
           const newProgress = `${(newProgressMs / duration) * 100}%`
@@ -94,7 +95,7 @@ export default {
     refreshNowPlaying() {
       setInterval(() => {
         this.getNowPlaying()
-      }, 180000)
+      }, 150000)
     },
     isSwappingBool(bool) {
       if (bool !== this.swapping) this.swapping = bool
@@ -143,10 +144,19 @@ p {
   opacity: 0.6;
   white-space: nowrap;
 }
-em:not(em:last-child):after {
-  content: ', ';
-  font-weight: normal;
+em {
+  display: inline-block;
   padding-right: 4px;
+  font-weight: normal;
+}
+em:after {
+  content: ', ';
+}
+em:last-child {
+  padding-right: 0;
+}
+em:last-child:after {
+  content: none;
 }
 p.title {
   display: block;
@@ -167,6 +177,20 @@ span {
   height: 1px;
   opacity: 0.5;
   background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 1px #fff, 0 0 4px #ff1177, 0 0 5px #ff1177, 0 0 6px #ff1177,
+    0 0 7px #ff1177, 0 0 10px #ff1177;
+}
+span:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -1px;
+  bottom: 0;
+  height: 3px;
+  width: 3px;
+  background: #ff1177;
+  border-radius: 50%;
+  filter: blur(3px);
   box-shadow: 0 0 1px #fff, 0 0 4px #ff1177, 0 0 5px #ff1177, 0 0 6px #ff1177,
     0 0 7px #ff1177, 0 0 10px #ff1177;
 }
