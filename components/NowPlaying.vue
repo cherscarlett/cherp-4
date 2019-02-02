@@ -13,6 +13,9 @@
 </template>
 <script>
 export default {
+  data() {
+    return { timer: '' }
+  },
   computed: {
     token() {
       return this.$store.state.token
@@ -39,8 +42,11 @@ export default {
       return this.isSwappingBool()
     }
   },
-  mounted() {
-    if (this.access) this.refreshNowPlaying()
+  created() {
+    if (this.access)
+      this.timer = setInterval(() => {
+        this.getNowPlaying()
+      }, 15000)
   },
   methods: {
     async getNowPlaying() {
@@ -92,15 +98,13 @@ export default {
         }
       }, 100)
     },
-    refreshNowPlaying() {
-      setInterval(() => {
-        this.getNowPlaying()
-      }, 150000)
-    },
     isSwappingBool(bool) {
       if (bool !== this.swapping) this.swapping = bool
       return this.swapping
     }
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
   }
 }
 </script>
