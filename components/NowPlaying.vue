@@ -1,20 +1,22 @@
 <template>
-  <article v-if="nowPlaying && nowPlaying.item" :class="isSwapping ? 'is-swapping' : ''">
-    <h1>Current Vibes</h1>
-    <p class="title">{{ nowPlaying.item.name }}</p>
-    <p class="artist">
-      <em v-for="(artist, index) in nowPlaying.item.artists" :key="index">{{ artist.name }}</em>
-    </p>
-    <aside>
-      <span :style="`width: ${progress}`" :aria-label="progress"/>
-      <img :src="nowPlaying.item.album.images[0].url" alt=" ">
-    </aside>
-  </article>
+  <transition name="fade">
+    <article v-if="nowPlaying && nowPlaying.item">
+      <h1>Current Vibes</h1>
+      <p class="title">{{ nowPlaying.item.name }}</p>
+      <p class="artist">
+        <em v-for="(artist, index) in nowPlaying.item.artists" :key="index">{{ artist.name }}</em>
+      </p>
+      <aside>
+        <span :style="`width: ${trackProgress}`" :aria-label="trackProgress"/>
+        <img :src="nowPlaying.item.album.images[0].url" alt=" ">
+      </aside>
+    </article>
+  </transition>
 </template>
 <script>
 export default {
   data() {
-    return { timer: '' }
+    return { staleTimer: '', trackTimer: '', trackProgress: '0%' }
   },
   computed: {
     token() {
@@ -32,39 +34,34 @@ export default {
       }
       return this.$store.state.nowPlaying
     },
-    progress() {
-      return this.$store.state.trackProgress
-    },
     audioAnalysis() {
       return this.$store.state.audioAnalysis
-    },
-    isSwapping() {
-      return this.isSwappingBool()
     }
   },
   created() {
     if (this.access)
-      this.timer = setInterval(() => {
+      this.staleTimer = setInterval(() => {
         this.getNowPlaying()
-      }, 15000)
+      }, 5000)
   },
   methods: {
+    computeProgress(progressMs = 0, duration = 0) {
+      return `${(progressMs / duration) * 100}%`
+    },
     async getNowPlaying() {
       const nowPlaying = await this.$axios.$get(
         `/api/now-playing/${this.access}`
       )
+      const progress = nowPlaying.progress_ms
+      const duration = nowPlaying.item.duration_ms
+      this.computeProgress(progress, duration)
       let id = null
       if (this.nowPlaying) id = this.nowPlaying.item.id
       if (nowPlaying && (nowPlaying.is_playing && nowPlaying.item.id !== id)) {
-        this.timeTrack(
-          Date.now(),
-          nowPlaying.item.duration_ms,
-          nowPlaying.progress_ms
-        )
+        this.timeTrack(Date.now(), duration, progress)
         this.$store.commit('nowPlayingChange', {
           nowPlaying
         })
-        this.isSwappingBool(true)
         // this.getAudioAnalysis(nowPlaying.item.id)
       }
     },
@@ -77,34 +74,26 @@ export default {
       })
     },
     timeTrack(now, duration, progress) {
-      this.isSwappingBool(false)
       const remainder = duration - progress
       const until = now + remainder
-      const runTimer = setInterval(() => {
+      clearInterval(this.runTimer)
+      this.runTimer = setInterval(() => {
         const newNow = Date.now()
         if (newNow < until + 2500) {
           const newRemainder = until - newNow
           const newProgressMs = duration - newRemainder
-          const newProgress = `${(newProgressMs / duration) * 100}%`
-          this.$store.commit('updateTrackProgress', {
-            trackProgress: newProgress
-          })
+          const newProgress = this.computeProgress(newProgressMs, duration)
+          this.trackProgress = newProgress
         } else {
-          this.$store.commit('updateTrackProgress', {
-            trackProgress: '100%'
-          })
-          clearInterval(runTimer)
+          this.trackProgress = '100%'
+          clearInterval(this.runTimer)
           this.getNowPlaying()
         }
       }, 100)
-    },
-    isSwappingBool(bool) {
-      if (bool !== this.swapping) this.swapping = bool
-      return this.swapping
     }
   },
   beforeDestroy() {
-    clearInterval(this.timer)
+    clearInterval(this.staleTimer)
   }
 }
 </script>
@@ -122,12 +111,27 @@ article {
   color: white;
   filter: brightness(170%);
 }
-article.is-swapping p,
-article.is-swapping img,
-article.is-swapping span {
-  opacity: 0;
-  transition: all 0.1s ease;
+.fade-enter-active,
+.fade-leave-active,
+.fade-enter-active p,
+.fade-leave-active p,
+.fade-enter-active img,
+.fade-leave-active img,
+.fade-enter-active span,
+.fade-leave-active span {
+  transition: opacity 300ms ease-in-out;
 }
+.fade-enter,
+.fade-leave,
+.fade-enter p,
+.fade-leave p,
+.fade-enter img,
+.fade-leave img,
+.fade-enter span,
+.fade-leave span {
+  opacity: 0;
+}
+
 h1 {
   position: absolute;
   right: 8px;

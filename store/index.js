@@ -4,7 +4,6 @@ export const state = () => ({
   access: null,
   staleTime: null,
   nowPlaying: null,
-  trackProgress: '0%',
   audioAnalysis: null
 })
 
@@ -17,9 +16,6 @@ export const mutations = {
   },
   nowPlayingChange(state, { nowPlaying }) {
     state.nowPlaying = nowPlaying
-  },
-  updateTrackProgress(state, { trackProgress }) {
-    state.trackProgress = trackProgress
   },
   updateAudioAnalysis(state, { audioAnalysis }) {
     state.audioAnalysis = audioAnalysis
