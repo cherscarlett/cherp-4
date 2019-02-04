@@ -521,7 +521,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.66);
   color: black;
   border: 1px solid white;
   mix-blend-mode: soft-light;
