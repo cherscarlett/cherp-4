@@ -8,8 +8,8 @@
       </p>
       <aside>
         <span :style="`width: ${trackProgress}`" :aria-label="trackProgress"/>
-        <img :src="nowPlaying.item.album.images[0].url" alt=" ">
       </aside>
+      <img :src="nowPlaying.item.album.images[0].url" alt=" ">
     </article>
   </transition>
 </template>

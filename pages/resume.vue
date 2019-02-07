@@ -25,13 +25,29 @@
                 <ul>
                   <li>
                     <p>Turning code into coffee so you can turn coffee into code.</p>
+                  </li>
+                  <li>
                     <p>Led replatforming efforts for Careers hub from .net to react-static.</p>
+                  </li>
+                  <li>
                     <p>Led creation of a new marketing-driven web platform tool for internal content creators.</p>
+                  </li>
+                  <li>
                     <p>Led a team of four engineers working to add features and improve the Starbucks PWA.</p>
+                  </li>
+                  <li>
                     <p>Led initiatives in celebrating and appreciating cultural diversity among our customers.</p>
+                  </li>
+                  <li>
                     <p>Led efforts in moving to quickly merging pull requests and early QA sign off for daily deployments.</p>
+                  </li>
+                  <li>
                     <p>Led efforts to increase reusability of Starbucks branded React components across the tech org.</p>
+                  </li>
+                  <li>
                     <p>Janitor and servant of the Starbucks Pattern Library.</p>
+                  </li>
+                  <li>
                     <p>Spear-headed efforts for an internal Starbucks technology blog.</p>
                   </li>
                 </ul>
