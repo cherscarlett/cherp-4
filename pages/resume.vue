@@ -14,7 +14,7 @@
               <header>
                 <hgroup>
                   <h1>Starbucks</h1>
-                  <h2>Lead Web Developer</h2>
+                  <h2>Lead Software Engineer</h2>
                 </hgroup>
                 <div class="metadata">
                   <p class="location">Remote</p>
@@ -24,7 +24,15 @@
               <div class="resume-document-content">
                 <ul>
                   <li>
-                    <p>'Turning code into coffee so you can turn coffee into code.' - @mzabriskie</p>
+                    <p>Turning code into coffee so you can turn coffee into code.</p>
+                    <p>Led replatforming efforts for Careers hub from .net to react-static.</p>
+                    <p>Led creation of a new marketing-driven web platform tool for internal content creators.</p>
+                    <p>Led a team of four engineers working to add features and improve the Starbucks PWA.</p>
+                    <p>Led initiatives in celebrating and appreciating cultural diversity among our customers.</p>
+                    <p>Led efforts in moving to quickly merging pull requests and early QA sign off for daily deployments.</p>
+                    <p>Led efforts to increase reusability of Starbucks branded React components across the tech org.</p>
+                    <p>Janitor and servant of the Starbucks Pattern Library.</p>
+                    <p>Spear-headed efforts for an internal Starbucks technology blog.</p>
                   </li>
                 </ul>
               </div>
