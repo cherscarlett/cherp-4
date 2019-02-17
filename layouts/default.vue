@@ -14,7 +14,7 @@ export default {
     Header
   },
   transition: {
-    name: 'slide',
+    name: 'fade',
     mode: 'out-in'
   }
 }
@@ -79,7 +79,7 @@ section.page-leave-active {
 }
 section:before {
   content: '';
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.6);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
@@ -87,17 +87,18 @@ section:before {
   bottom: 0;
   right: 0;
   z-index: -1;
+  mix-blend-mode: multiply;
 }
 section:after {
   content: '';
-  filter: blur(8px);
+  filter: blur(20px);
   background: transparent url(~assets/bg.jpg) bottom center no-repeat;
   position: absolute;
-  top: -10px;
-  left: -10px;
-  bottom: -10px;
-  right: -10px;
-  background-size: 105vw 105vh;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
+  background-size: 100vw 100vh;
   z-index: -2;
   opacity: 1;
   transition: all 0.5s ease-in;

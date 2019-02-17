@@ -3,7 +3,10 @@
     <h1>Resume</h1>
     <p
       class="intro"
-    >Software Engineer with over 20 years of experience in front-end technologies, 15 years of full-stack experience. I love math, logic and data structures, but have the strongest front-end eye. I am flexible in working environments having worked remotely as a contractor, startups, studio-agencies, and fortune 500 companies.</p>
+    >Software Engineer with over 20 years of experience in front-end technologies and 15 years of full-stack experience.</p>
+    <p
+      class="intro"
+    >I love math, logic and data structures, but am strongest on the front-end. I am flexible in working environments having worked remotely and in-office as a contractor, and in startups, studio-agencies, and fortune 500 companies.</p>
 
     <div class="content content-resume">
       <div class="resume-list">
@@ -495,12 +498,34 @@
           </li>
         </ol>
       </div>
+      <SkillsGraph :skills="[]"/>
     </div>
   </section>
 </template>
+<script>
+import SkillsGraph from '~/components/SkillsGraph.vue'
+
+export default {
+  components: { SkillsGraph },
+  middleware: 'github'
+}
+</script>
 <style>
-.resume-list {
+.content-resume {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  overflow: hidden;
+}
+.resume-list,
+.skills-graph {
   padding-top: 1em;
+  overflow: auto;
+}
+.skills-graph {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.skills-graph h3 {
+  margin: 0 2em;
 }
 .resume-document {
   max-width: 800px;

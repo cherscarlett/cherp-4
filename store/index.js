@@ -4,7 +4,8 @@ export const state = () => ({
   access: null,
   staleTime: null,
   nowPlaying: null,
-  audioAnalysis: null
+  audioAnalysis: null,
+  languages: []
 })
 
 export const mutations = {

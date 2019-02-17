@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="fade" mode="in-out">
     <article v-if="nowPlaying && nowPlaying.item">
       <h1>Current Vibes</h1>
       <p class="title">{{ nowPlaying.item.name }}</p>
