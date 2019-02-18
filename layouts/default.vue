@@ -12,10 +12,6 @@ import Header from '~/components/Header.vue'
 export default {
   components: {
     Header
-  },
-  transition: {
-    name: 'fade',
-    mode: 'out-in'
   }
 }
 </script>
@@ -79,7 +75,7 @@ section.page-leave-active {
 }
 section:before {
   content: '';
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;

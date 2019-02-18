@@ -4,10 +4,6 @@
     <p
       class="intro"
     >Software Engineer with over 20 years of experience in front-end technologies and 15 years of full-stack experience.</p>
-    <p
-      class="intro"
-    >I love math, logic and data structures, but am strongest on the front-end. I am flexible in working environments having worked remotely and in-office as a contractor, and in startups, studio-agencies, and fortune 500 companies.</p>
-
     <div class="content content-resume">
       <div class="resume-list">
         <h3 class="resume-type">Employment</h3>
@@ -498,7 +494,7 @@
           </li>
         </ol>
       </div>
-      <SkillsGraph :skills="[]"/>
+      <SkillsGraph/>
     </div>
   </section>
 </template>

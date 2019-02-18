@@ -94,6 +94,7 @@ export default {
   },
   beforeDestroy() {
     clearInterval(this.staleTimer)
+    clearInterval(this.runTimer)
   }
 }
 </script>

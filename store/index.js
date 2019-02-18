@@ -5,7 +5,7 @@ export const state = () => ({
   staleTime: null,
   nowPlaying: null,
   audioAnalysis: null,
-  languages: []
+  skills: null
 })
 
 export const mutations = {
@@ -20,5 +20,8 @@ export const mutations = {
   },
   updateAudioAnalysis(state, { audioAnalysis }) {
     state.audioAnalysis = audioAnalysis
+  },
+  updateSkills(state, skills) {
+    state.skills = skills
   }
 }
