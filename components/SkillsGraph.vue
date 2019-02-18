@@ -81,10 +81,12 @@ export default {
 }
 .skill-item span {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  color: black;
 }
 .skill-item:hover span {
   opacity: 1 !important;
+  color: white;
 }
 
 .skill-item div:after {
