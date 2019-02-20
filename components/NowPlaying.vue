@@ -52,16 +52,18 @@ export default {
       const nowPlaying = await this.$axios.$get(
         `/api/now-playing/${this.access}`
       )
-      const progress = nowPlaying.progress_ms
-      const duration = nowPlaying.item.duration_ms
-      this.computeProgress(progress, duration)
-      let id = null
-      if (this.nowPlaying) id = this.nowPlaying.item.id
-      if (nowPlaying && (nowPlaying.is_playing && nowPlaying.item.id !== id)) {
-        this.timeTrack(Date.now(), duration, progress)
-        this.$store.commit('nowPlayingChange', {
-          nowPlaying
-        })
+      if (nowPlaying.item) {
+        const progress = nowPlaying.progress_ms
+        const duration = nowPlaying.item.duration_ms
+        this.computeProgress(progress, duration)
+        let id = null
+        id = this.nowPlaying.item.id
+        if (nowPlaying.item.id !== id) {
+          this.timeTrack(Date.now(), duration, progress)
+          this.$store.commit('nowPlayingChange', {
+            nowPlaying
+          })
+        }
         // this.getAudioAnalysis(nowPlaying.item.id)
       }
     },

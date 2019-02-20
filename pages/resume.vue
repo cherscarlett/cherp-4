@@ -1,11 +1,23 @@
 <template>
   <section>
-    <h1>Resume</h1>
-    <p
-      class="intro"
-    >Software Engineer with over 20 years of experience in front-end technologies and 15 years of full-stack experience.</p>
+    <header>
+      <h1>Resume</h1>
+      <p
+        class="intro"
+      >Software Engineer with over 20 years of experience in front-end technologies and 15 years of full-stack experience.</p>
+      <nav class="crumb-nav">
+        <ul>
+          <li v-for="(crumb, idx) in crumbs" :key="idx">
+            <button
+              :disabled="currentCrumb === crumb.id ? true : false"
+              class="crumb"
+            >{{crumb.label}}</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="content content-resume">
-      <div class="resume-list">
+      <div :class="`resume-list ${crumb === 'resume' ? 'is-active-crumb' : ''}`">
         <h3 class="resume-type">Employment</h3>
         <ol class="resume-document">
           <li class="resume-document-item">
@@ -119,6 +131,9 @@
               </header>
               <div class="resume-document-content">
                 <ul>
+                  <li>
+                    <p>Mentored at-risk youth to build a special development build of Hearthstone with 4 other engineers. The kids got to design their own cards and play with the special version on campus at the end of the 6-month program.</p>
+                  </li>
                   <li>
                     <p>Led efforts to overhaul esports experiences for Tespa, Blizzcon, World of Warcraft, Heroes of the Storm and Overwatch.</p>
                   </li>
@@ -454,20 +469,6 @@
             <article>
               <header>
                 <hgroup>
-                  <h1>University of Washington</h1>
-                  <h2>Data Science</h2>
-                </hgroup>
-                <div class="metadata edu">
-                  <p class="location">Remote</p>
-                  <p class="timespan">October 2016 - January 2017</p>
-                </div>
-              </header>
-            </article>
-          </li>
-          <li class="resume-document-item">
-            <article>
-              <header>
-                <hgroup>
                   <h1>University of Missouri</h1>
                   <h2>Physics &amp; Astronomy</h2>
                 </hgroup>
@@ -503,7 +504,28 @@ import SkillsGraph from '~/components/SkillsGraph.vue'
 
 export default {
   components: { SkillsGraph },
-  middleware: 'github'
+  computed: {
+    crumbs() {
+      return [
+        {
+          label: 'Experience & Education',
+          id: 'resume'
+        },
+        {
+          label: 'Skills',
+          id: 'skills'
+        }
+      ]
+    },
+    currentCrumb() {
+      return 'resume'
+    }
+  },
+  methods: {
+    updateCrumb(crumb) {
+      this.currentCrumb = crumb
+    }
+  }
 }
 </script>
 <style>
@@ -576,6 +598,44 @@ export default {
 .resume-document-skills li {
   text-align: center;
   padding: 10px 20px;
+}
+.crumb-nav {
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  .content-resume {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  }
+  .skills-graph {
+    display: none;
+  }
+  .crumb-nav {
+    display: none;
+  }
+  .crumb-nav li {
+    display: inline;
+  }
+  .crumb {
+    font-family: 'Domaine Display', serif;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    appearance: none;
+    padding: 1em;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .crumb:not([disabled]) {
+    cursor: pointer;
+  }
+  .crumb[disabled] {
+    color: black;
+    background: rgba(255, 255, 255, 0.4);
+    mix-blend-mode: soft-light;
+  }
 }
 @media screen and (max-width: 600px) {
   .metadata:not(.edu) {
