@@ -99,9 +99,9 @@ svg {
   fill: black;
   stroke: none;
   /* opacity: 0.4; */
-  width: 50%;
+  width: 50% !important;
   margin-left: auto;
-  height: 90%;
+  height: 90% !important;
   transition: all 1s ease-in-out;
 }
 header.page svg {
