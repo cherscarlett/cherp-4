@@ -65,6 +65,7 @@
               </div>
               <div class="resume-document-skills">
                 <ul>
+                  <li>GraphQL</li>
                   <li>React</li>
                   <li>Node.js</li>
                   <li>React Native</li>
