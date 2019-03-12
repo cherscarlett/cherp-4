@@ -9,6 +9,20 @@
       <h3 class="writing-type">Technology</h3>
       <ul class="content-document" data-type="Article">
         <li>
+          <a
+            href="https://www.smashingmagazine.com/2019/03/spotify-app-vue-nuxt-javascript/"
+            data-type="Article"
+          >
+            <article>
+              <h1 class="article-title">Creating A Spotify-Powered App Using Nuxt.js</h1>
+              <div class="byline">
+                <address class="org">Smashing Magazine</address>
+                <time datetime="2019-03-12T00:00:00" pubdate="pubdate">March 12th, 2019</time>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
           <a href="https://medium.com/@cherp/the-big-d-with-big-o-632e5cb9f1ca" data-type="Article">
             <article>
               <h1 class="article-title">The big D with big O</h1>
