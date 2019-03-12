@@ -562,7 +562,6 @@ export default {
   text-align: right;
 }
 .resume-document-item .timespan {
-  font-family: 'Domaine Display Narrow';
   font-style: italic;
 }
 .resume-document-item h1 {
@@ -570,9 +569,9 @@ export default {
   font-size: 2em;
   padding: 0;
   margin: 0;
+  line-height: 1em;
 }
 .resume-document-item h2 {
-  font-family: 'Domaine Display Narrow';
   font-weight: normal;
   font-style: italic;
   font-size: 1.2em;
@@ -591,7 +590,6 @@ export default {
   background: rgba(255, 255, 255, 0.66);
   color: black;
   border: 1px solid white;
-  mix-blend-mode: soft-light;
   font-weight: bold;
   padding: 1em;
 }
@@ -617,7 +615,6 @@ export default {
     display: inline;
   }
   .crumb {
-    font-family: 'Domaine Display', serif;
     background: none;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -634,7 +631,6 @@ export default {
   .crumb[disabled] {
     color: black;
     background: rgba(255, 255, 255, 0.4);
-    mix-blend-mode: soft-light;
   }
 }
 @media screen and (max-width: 600px) {

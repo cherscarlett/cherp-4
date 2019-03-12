@@ -9,6 +9,17 @@
       <h3 class="writing-type">Technology</h3>
       <ul class="content-document" data-type="Article">
         <li>
+          <a href="https://medium.com/@cherp/the-big-d-with-big-o-632e5cb9f1ca" data-type="Article">
+            <article>
+              <h1 class="article-title">The big D with big O</h1>
+              <div class="byline">
+                <address class="org">Medium</address>
+                <time datetime="2019-03-06T00:00:00" pubdate="pubdate">March 6th, 2019</time>
+              </div>
+            </article>
+          </a>
+        </li>
+        <li>
           <a
             href="https://medium.com/@cherp/const-is-fucking-useful-8f2b4e6652ea"
             data-type="Article"
@@ -131,7 +142,7 @@
     </div>
   </section>
 </template>
-<style>
+<style scoped>
 .content-writing article {
   display: flex;
   align-items: center;
@@ -143,5 +154,19 @@
 .content-document a article {
   margin: 0 -1em;
   padding: 0 1em;
+}
+h3 {
+  font-size: 1.4em;
+}
+a {
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 0.5em;
+  width: 100%;
+  max-width: 800px;
+}
+a:hover,
+a:active {
+  border-color: black;
 }
 </style>

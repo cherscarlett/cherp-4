@@ -40,8 +40,6 @@ export const actions = {
     const flatten = (array = []) =>
       array.reduce((x, y) => x.concat(Array.isArray(y) ? flatten(y) : y), [])
 
-    const sleep = ms => new Promise(res => setTimeout(res, ms))
-
     async function getRepositoryCount(username = me) {
       const endpoint = `${url}users/${username}${authParams}`
       const {
@@ -65,6 +63,8 @@ export const actions = {
       )
       return repos.filter(repo => Boolean(repo))
     }
+
+    const sleep = ms => new Promise(res => setTimeout(res, ms))
 
     async function getLanguages(repositoryName = '', username = me) {
       await sleep(100)

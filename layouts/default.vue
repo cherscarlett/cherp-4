@@ -26,8 +26,8 @@ html {
 }
 
 body {
-  color: white;
-  font-family: 'Domaine Display', serif;
+  color: black;
+  font-family: 'Suranna', serif;
   height: 100vh;
 }
 
@@ -44,104 +44,12 @@ li {
   list-style: none;
 }
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-  background: #022728 url(~assets/bg.jpg) bottom center no-repeat;
-  background-size: cover;
-}
 section {
-  margin-top: auto;
-  position: relative;
-  width: 100%;
-  padding: 1em 2em;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: all 1s ease-in-out;
-  height: 90vh;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1;
+  padding: 2em;
 }
-section.page-enter {
-  height: 0;
-}
-section.page-leave-active {
-  height: 0;
-}
-section:before {
-  content: '';
-  background: rgba(0, 0, 0, 0.4);
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  mix-blend-mode: multiply;
-}
-section:after {
-  content: '';
-  filter: blur(20px);
-  background: transparent url(~assets/bg.jpg) bottom center no-repeat;
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  bottom: -20px;
-  right: -20px;
-  background-size: 100vw 100vh;
-  z-index: -2;
-  opacity: 1;
-  transition: all 0.5s ease-in;
-}
-
-h1 {
-  padding: 1em 0;
-}
-.content {
-  overflow: scroll;
-  height: 90%;
-  padding-bottom: 100px;
-  position: relative;
-}
-
-p.intro {
-  padding: 1em 3em;
-  max-width: 600px;
-  line-height: 1.3em;
-}
-
-h3 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 2em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  max-width: 600px;
-  margin: auto;
-}
-
-.content-document {
-  padding: 2em 0;
-  max-width: 800px;
-  margin: auto;
-}
-
-.content-document a article {
-  border: 1px solid transparent;
-  transition: all 0.2s ease-out;
-}
-.content-document a:hover article,
-.content-document a:active article {
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.2);
-  color: black;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -192,10 +100,5 @@ h3 {
 .nuxt-progress {
   opacity: 0.5;
   mix-blend-mode: soft-light;
-}
-@media screen and (max-width: 700px) {
-  .content {
-    padding-bottom: 200px;
-  }
 }
 </style>

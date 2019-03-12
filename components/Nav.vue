@@ -6,104 +6,60 @@
           to="/resume"
           name="resume"
           v-bind:aria-current="'/resume' === $nuxt.$route.path ? 'page' : false"
-        >Resume</nuxt-link>
+        >Engineer</nuxt-link>
       </li>
       <li>
         <nuxt-link
           to="/writing"
           name="writing"
           v-bind:aria-current="'/writing' === $nuxt.$route.path ? 'page' : false"
-        >Writing</nuxt-link>
+        >Writer</nuxt-link>
       </li>
       <li>
         <nuxt-link
           to="/photography"
           name="photography"
           v-bind:aria-current="'/photography' === $nuxt.$route.path ? 'page' : false"
-        >Photography</nuxt-link>
+        >Artist</nuxt-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <style scoped>
-nav {
-  margin-top: auto;
-  position: relative;
-  width: 100%;
-  padding: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s ease-in;
-  transform: translateX(0) translateY(0);
-}
-header.page nav {
-  transform: translateX(0) translateY(-5vh);
-}
-nav:before {
-  content: '';
-  background: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-}
-nav:after {
-  content: '';
-  filter: blur(8px);
-  background: transparent url(~assets/bg.jpg) bottom center no-repeat;
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  bottom: -10px;
-  right: -10px;
-  background-size: 100vw 100vh;
-  z-index: -1;
-  opacity: 1;
-  transition: all 0.5s ease-in;
-}
-header.page nav:after {
-  background-position: top center;
-  opacity: 0;
-}
-ul {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: all 0.5s ease-in;
-}
-header.page ul {
-  width: 50%;
-  margin-left: 50%;
-}
-li {
-  font-size: 1.5em;
-  text-transform: lowercase;
-  text-align: center;
-  flex-grow: 1;
-  font-style: italic;
-  font-family: 'Domaine Display Narrow';
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
-}
 a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.2s ease-out;
+  text-transform: lowercase;
+  font-size: 2em;
+  line-height: 1pxem;
+  transition: all 0.6s ease-in-out;
+  position: relative;
 }
-a:hover,
-a:active {
-  color: #ff1177;
+a:after {
+  content: '';
+  height: 0%;
+  width: 1px;
+  background: black;
+  left: -0.6em;
+  position: absolute;
+  transition: all 0.6s ease-in-out;
 }
-@media screen and (max-width: 600px) {
-  header.page ul {
-    width: 100%;
-    margin-left: 0;
+a:hover:after,
+a:active:after {
+  height: 75%;
+}
+
+header.page ul {
+  display: flex;
+}
+
+header.page li {
+  margin: 0 1em;
+}
+
+@media screen and (max-width: 900px) {
+  header.page a {
+    font-size: 1.4em;
+    line-height: 50px;
   }
 }
 </style>

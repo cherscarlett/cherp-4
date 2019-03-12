@@ -1,9 +1,13 @@
 <template>
   <header :class="$nuxt.$route.name === 'index' ? '' : 'page'">
-    <h1>
-      <nuxt-link to="/" name="index">Cher Scarlett</nuxt-link>
-    </h1>
-    <h2>Software Engineer</h2>
+    <div>
+      <h1>
+        <nuxt-link to="/" name="index">Cher</nuxt-link>
+      </h1>
+      <Nav/>
+    </div>
+    <Body/>
+
     <ul class="external">
       <li>
         <a href="//twitter.com/codehitchhiker" class="twitter">twitter.com/codehitchhiker</a>
@@ -15,16 +19,17 @@
         <a href="//github.com/cherscarlett" class="github">linkedin.com/in/cherscarlett</a>
       </li>
     </ul>
-    <Nav/>
   </header>
 </template>
 
 <script>
 import Nav from '~/components/Nav.vue'
+import Body from '~/components/Body.vue'
 
 export default {
   components: {
-    Nav
+    Nav,
+    Body
   }
 }
 </script>
@@ -32,68 +37,83 @@ export default {
 <style scoped>
 header {
   display: flex;
-  flex-direction: column;
   height: 100vh;
   align-items: center;
   justify-content: center;
   transition: all 1s ease-in-out;
-  overflow: hidden;
   position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 header.page {
-  height: 100px;
+  height: 50px;
   justify-content: flex-start;
+  padding: 0 2em;
+}
+
+nav {
+  text-align: left;
+  margin: 2em 0;
+  position: relative;
+  z-index: 2;
+  transition: all 1s ease-in-out;
+}
+
+header.page nav {
+  margin: 0 2em;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: auto;
+  transition: all 1s ease-in-out;
+}
+
+header.page div {
+  flex-direction: row;
+  margin: 0;
 }
 
 h1 {
   font-family: Noelan, cursive;
   font-size: 7em;
   font-weight: 400;
-  width: 100%;
-  animation: neon 2s ease-in-out infinite alternate;
-  mix-blend-mode: hard-light;
-  opacity: 0.8;
-  margin-top: auto;
-  margin-left: 50%;
-  transform: translateX(-20vw) translateY(0) rotate(0);
+  /* animation: neon 2s ease-in-out infinite alternate; */
+  /* opacity: 0.8; */
   transition: all 1s ease-in;
   padding: 0;
   line-height: 0.9em;
+  text-transform: lowercase;
+}
+header.page h1 {
+  font-size: 2em;
+  line-height: 1.5em;
+}
+svg {
+  /* animation: neon2 2s ease-in-out infinite alternate; */
+  fill: black;
+  stroke: none;
+  /* opacity: 0.4; */
+  width: 50%;
+  margin-left: auto;
+  height: 90%;
+  transition: all 1s ease-in-out;
+}
+header.page svg {
+  height: 20vh;
   position: absolute;
-  z-index: 2;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 20%;
 }
 h1 a {
-  color: #022728;
-}
-
-header.page h1 {
-  font-size: 2.5em;
-  transform: translateX(-72vw) translateY(1vh) rotate(0);
-  width: 50%;
-}
-
-h2 {
-  text-transform: uppercase;
-  text-shadow: 0 2px 8px #000;
-  letter-spacing: 1px;
-  transform: translateX(100%) translateY(335%);
-  opacity: 1;
-  position: absolute;
-  transition: all 1s ease-in;
-}
-
-header.page h2 {
-  opacity: 0;
-}
-
-svg {
-  width: 100%;
-  height: 2em;
-}
-
-text {
-  text-anchor: middle;
+  color: black;
 }
 @-webkit-keyframes neon {
   from {
@@ -105,17 +125,37 @@ text {
       0 0 35px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 75px #ff1177;
   }
 }
+@-webkit-keyframes neon2 {
+  from {
+    filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)
+      drop-shadow(0 0 3px #fff) drop-shadow(0 0 4px #ff1177)
+      drop-shadow(0 0 7px #ff1177) drop-shadow(0 0 8px #ff1177)
+      drop-shadow(0 0 10px #ff1177) drop-shadow(0 0 15px #ff1177);
+  }
+  to {
+    filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)
+      drop-shadow(0 0 3px #fff) drop-shadow(0 0 4px #ff1177)
+      drop-shadow(0 0 5px #ff1177) drop-shadow(0 0 6px #ff1177)
+      drop-shadow(0 0 7px #ff1177) drop-shadow(0 0 8px #ff1177);
+  }
+}
 .external {
-  position: absolute;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 6em;
   transition: all 1s ease-in-out;
-  transform: translateX(396%) translateY(600%) scale(1);
   z-index: 5;
+  width: 100%;
 }
 header.page .external {
-  transform: translateX(41vw) translateY(7vh) scale(0.75);
+  width: auto;
+  line-height: 2em;
+  margin-left: auto;
+}
+.external li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .external a {
   height: 20px;
@@ -123,15 +163,16 @@ header.page .external {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  filter: grayscale(100%) brightness(2.5);
+  filter: grayscale(100%) brightness(0);
   transition: all 0.6s ease-in-out;
   text-indent: -10000px;
   display: inline-block;
+  margin: 0 10px;
 }
 
 .external a:hover,
 .external a:active {
-  filter: grayscale(0%) brightness(1);
+  filter: grayscale(0%) brightness(100%);
 }
 
 .twitter {
@@ -143,37 +184,24 @@ header.page .external {
 .linkedin {
   background-image: url(~assets/linkedin.svg);
 }
-
-@media screen and (max-width: 1024px) {
-  h1 {
-    transform: rotate(0) translateX(-35vw) translateY(0);
+@media screen and (max-width: 900px) {
+  header.page {
+    min-width: 320px;
+    padding: 0 0.5em;
   }
-}
-@media screen and (max-width: 880px) {
-  h1 {
-    transform: rotate(25deg) translateX(-45vw) translateY(10vh);
-  }
-
-  h2 {
-    transform: translateX(0) translateY(900%);
-  }
-
-  .external {
-    transform: translateX(0) translateY(900%);
-  }
-}
-@media screen and (max-width: 700px) {
-  h1 {
-    transform: rotate(45deg) translateX(-40vw) translateY(10vh);
-  }
-
-  header.page h1 {
-    font-size: 1.5em;
-    transform: translateX(-68vw) translateY(8vh) rotate(0);
-  }
-
   header.page .external {
-    transform: translateX(32vw) translateY(8vh) scale(0.75);
+    width: 20%;
+  }
+  header.page .external a {
+    height: 14px;
+    width: 14px;
+  }
+  header.page nav {
+    margin: 0 1em;
+  }
+  header.page h1 {
+    font-size: 1.3em;
+    line-height: 50px;
   }
 }
 </style>

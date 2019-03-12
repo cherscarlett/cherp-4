@@ -55,7 +55,6 @@ export default {
   padding-top: 1em;
 }
 .skills-graph p {
-  font-family: 'Domaine Display Narrow', serif;
   font-style: italic;
   font-size: 1.4em;
 }
@@ -68,7 +67,6 @@ export default {
   max-width: 90%;
   width: 0%;
   text-transform: lowercase;
-  font-family: 'Domaine Display Narrow', serif;
   font-style: italic;
   font-weight: bold;
   padding: 0;
@@ -82,11 +80,11 @@ export default {
 .skill-item span {
   opacity: 0;
   transition: all 1s ease-in-out;
-  color: black;
+  color: white;
 }
 .skill-item:hover span {
   opacity: 1 !important;
-  color: white;
+  color: black;
 }
 
 .skill-item div:after {
@@ -96,9 +94,9 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.55);
   mix-blend-mode: soft-light;
-  border: 1px solid white;
+  border: 1px solid black;
   z-index: -1;
 }
 
