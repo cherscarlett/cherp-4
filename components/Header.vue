@@ -94,6 +94,15 @@ header.page h1 {
   font-size: 2em;
   line-height: 1.5em;
 }
+
+header.page svg {
+  height: 20vh !important;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 20% !important;
+}
 svg {
   /* animation: neon2 2s ease-in-out infinite alternate; */
   fill: black;
@@ -103,14 +112,6 @@ svg {
   margin-left: auto;
   height: 90% !important;
   transition: all 1s ease-in-out;
-}
-header.page svg {
-  height: 20vh;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  width: 20%;
 }
 h1 a {
   color: black;
